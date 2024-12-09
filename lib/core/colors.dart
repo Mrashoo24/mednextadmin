@@ -1,0 +1,14 @@
+import 'dart:ui';
+var kdeepblue = Color(0xFF005073);
+var kskyblue = Color(0xFF0F6CF9);
+var khighlighBlue = Color(0xFF0AB4FF);
+var kgrey = Color(0xFF7D8182);
+var kblack = Color(0xFF293032);
+var kdarkgrey = Color(0xFFACAEAF);
+var klightblue = Color(0xFFF4F3FD);
+var klightGrey = Color(0xFF979797);
+var kpurple = Color(0xFF4B57B2);
+var kyellow = Color(0xFFFFB800);
+var kgreen = Color(0xFF22F051);
+var korange = Color(0xFFF09122);
+var kred = Color(0xFFF02222);
