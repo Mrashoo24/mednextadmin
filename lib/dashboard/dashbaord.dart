@@ -5,6 +5,11 @@ import 'package:mednextadmin/topic/topic.dart';
 import 'package:sidebar_drawer/sidebar_drawer.dart';
 
 import '../Controller/categoryController.dart';
+import '../adminscreens/coursescreenadmin.dart';
+import '../adminscreens/subjectscreenadmin.dart';
+import '../adminscreens/teacherscreenadmin.dart';
+import '../adminscreens/topicscreenadmin.dart';
+import '../adminscreens/videoscreenadmin.dart';
 import '../category/categoryScreen.dart';
 import 'customDraer.dart';
 
@@ -19,11 +24,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   var listOfWidgets = [
     CategoriesScreen(),
-    CategoriesScreen(),
-    CategoriesScreen(),
-    CategoriesScreen(),
-    CategoriesScreen(),
-    CategoriesScreen(),
+    Subjectscreenadmin(),
+    CourseScreenadmin(),
+    TopicScreenAdmin(),
+    TeacherSCreenAdmin(),
+    VideoScreenAdmin(),
 
   ];
 

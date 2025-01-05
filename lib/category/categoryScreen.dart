@@ -14,8 +14,6 @@ class CategoriesScreen extends StatefulWidget {
 class _CategoriesScreenState extends State<CategoriesScreen> {
   final CategoryController categoryController = Get.put<CategoryController>(CategoryController());
 
-  var tableController = PagedDataTableController();
-
   @override
   void initState() {
     super.initState();
@@ -29,20 +27,24 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         children: [
           Text("List Of Categories"),
           Expanded(
-            child: ListView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: categoryController.categories.length,
-                itemBuilder: (context,index){
+            child: GetBuilder<CategoryController>(
+              builder: (controller) {
+                return ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: categoryController.categories.length,
+                    itemBuilder: (context,index){
 
-                  var cat = categoryController.categories[index];
+                      var cat = categoryController.categories[index];
 
-              return Container(
-                child: Card(
-                  child: Text(cat.name),
-                ),
-              );
-            }),
+                  return Container(
+                    child: Card(
+                      child: Text(cat.name),
+                    ),
+                  );
+                });
+              }
+            ),
           )
         ],
       )
