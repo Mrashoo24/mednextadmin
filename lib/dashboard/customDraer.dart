@@ -1,86 +1,101 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:mednextadmin/core/colors.dart';
+
+import '../Controller/dashbaordController.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(DashboardController());
+
+
     print('rebuild custom drawer');
-    return Container(
-      color: Colors.black,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 13,
+    return Scaffold(
+      body: Container(
+        color: Colors.black,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 13,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 15),
+                  // Image.asset(
+                  //   'asset/logo1.png',
+                  //   width: 130,
+                  // ),
+                  SizedBox(height: 30),
+                  const Text(
+                    'MedNext',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const Divider(
+                    color: Colors.black45,
+                  ),
+                ],
+              ),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 15),
-                // Image.asset(
-                //   'asset/logo1.png',
-                //   width: 130,
-                // ),
-                SizedBox(height: 30),
-                const Text(
-                  'MY INCONN',
-                  style: TextStyle(color: Colors.white),
-                ),
-                const Divider(
-                  color: Colors.black45,
-                ),
-              ],
+
+            DrawerTile(
+              title: 'Category',
+              icn: Icons.notes, onTap: () {
+              controller.selectedIndex = 0 ;
+              controller.update();
+            },
             ),
-          ),
 
-          DrawerTile(
-            title: 'Category',
-            icn: Icons.safety_check, onTap: () {
+            ///
+            DrawerTile(
+              title: 'Courses',
+              icn: Icons.book_online_sharp, onTap: () {
+              controller.selectedIndex = 1 ;
+              controller.update();
+            },
+            ),
 
-          },
-          ),
+            ///
+            DrawerTile(
+              title: 'Subjects',
+              icn: Icons.notes_sharp, onTap: () {
+              controller.selectedIndex = 2 ;
+              controller.update();
+            },
+            ),
 
-          ///
-          DrawerTile(
-            title: 'Courses',
-            icn: Icons.safety_check, onTap: () {
+            ///
+            DrawerTile(
+              title: 'Topics',
+              icn: Icons.bookmark_add_sharp, onTap: () {
+              controller.selectedIndex = 3 ;
+              controller.update();
+            },
+            ),
 
-          },
-          ),
+            DrawerTile(
+              title: 'Teachers',
+              icn: Icons.person, onTap: () {
+              controller.selectedIndex = 4 ;
+              controller.update();
+            },
+            ),
 
-          ///
-          DrawerTile(
-            title: 'Subjects',
-            icn: Icons.safety_check, onTap: () {
-
-          },
-          ),
-
-          ///
-          DrawerTile(
-            title: 'Topics',
-            icn: Icons.safety_check, onTap: () {
-
-          },
-          ),
-
-          DrawerTile(
-            title: 'Teachers',
-            icn: Icons.safety_check, onTap: () {
-
-          },
-          ),
-
-          DrawerTile(
-            title: 'Video',
-            icn: Icons.safety_check, onTap: () {
-
-          },
-          ),
-        ],
+            DrawerTile(
+              title: 'Video',
+              icn: Icons.video_call_sharp, onTap: () {
+              controller.selectedIndex = 5 ;
+              controller.update();
+            },
+            ),
+          ],
+        ),
       ),
     );
   }

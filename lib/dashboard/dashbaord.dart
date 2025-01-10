@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mednextadmin/Controller/dashbaordController.dart';
@@ -24,8 +25,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   var listOfWidgets = [
     CategoriesScreen(),
-    Subjectscreenadmin(),
     CourseScreenadmin(),
+    Subjectscreenadmin(),
     TopicScreenAdmin(),
     TeacherSCreenAdmin(),
     VideoScreenAdmin(),
@@ -42,26 +43,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-
-      body:  SidebarDrawer(
-        drawer: CustomDrawer(),
+    return SidebarDrawer(
+      drawer: CustomDrawer(),
+      body: Scaffold(
+        appBar:   AppBar(
+          leading: DrawerIcon(),
+        ),
 
         body: GetBuilder<DashboardController>(
-          init: Get.put(DashboardController()),
-          builder: (controller) {
-            return Column(
-              children: [
-                AppBar(
-                  leading: DrawerIcon(),
-                ),
-                Container(
-                    height: 300,
-                    child: listOfWidgets[controller.selectedIndex]),
-              ],
-            );
-          }
+            init: Get.put(DashboardController()),
+            builder: (controller) {
+              return listOfWidgets[controller.selectedIndex];
+            }
         ),
       ),
     );
